@@ -1,8 +1,7 @@
 CREATE TABLE perfil (
     id serial PRIMARY KEY,
     nome_perfil VARCHAR(100) NOT NULL,
-    descricao TEXT,
-    data date
+    descricao TEXT
 );
 
 CREATE TABLE permissao (

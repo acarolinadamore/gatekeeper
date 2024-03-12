@@ -1,10 +1,13 @@
 <?php
     include_once "controllers/NoticiaController.php";
-    include_once "controllers/CategoriaController.php";include_once "controllers/UsuarioController.php";
+    include_once "controllers/CategoriaController.php";
+    include_once "controllers/UsuarioController.php";
     include_once "controllers/PermissaoController.php";
+    include_once "controllers/PerfilController.php";
     include_once "models/Noticia.php";
-    include_once "models/Permissao.php";
     include_once "models/Usuario.php";
+    include_once "models/Permissao.php";
+    include_once "models/Perfil.php";
 
     define("APP", "http://localhost/gatekeeper/");
     $url = $_GET['url'];
