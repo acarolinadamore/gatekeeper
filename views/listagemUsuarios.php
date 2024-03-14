@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
+  <?php include("components/sidebar.php"); ?>
 <div class="container p-5">
     <h1>Listagem de Usuários</h1>
     <a href="novo" class="btn btn-primary">Novo Usuário</a>
@@ -30,28 +31,33 @@
         </thead>
         <tbody>
         <?php
-        foreach($dados as $usuario) {
-            echo "
-            <tr>
-                <th scope='row'>{$usuario['id']}</th>
-                <td>{$usuario['nome']}</td>
-                <td>{$usuario['sexo']}</td>
-                <td>{$usuario['data_nascimento']}</td>
-                <td>{$usuario['cep']}</td>
-                <td>{$usuario['cidade']}</td>
-                <td>{$usuario['estado']}</td>
-                <td>{$usuario['bairro']}</td>
-                <td>{$usuario['complemento']}</td>
-                <td>{$usuario['logradouro']}</td>
-                <td>{$usuario['tipo']}</td>
-                <td>
-                    <a href='excluir/{$usuario['id']}' class='btn btn-danger'>Excluir</a>
-                </td>
-                <td>
-                    <a href='editar/{$usuario['id']}' class='btn btn-primary'>Editar</a>
-                </td>
-            </tr>
-            ";
+        // Verifica se a variável $dados está definida e não é nula
+        if (isset($dados) && is_array($dados)) {
+            foreach($dados as $usuario) {
+                echo "
+                <tr>
+                    <th scope='row'>{$usuario['id']}</th>
+                    <td>{$usuario['nome']}</td>
+                    <td>{$usuario['sexo']}</td>
+                    <td>{$usuario['data_nascimento']}</td>
+                    <td>{$usuario['cep']}</td>
+                    <td>{$usuario['cidade']}</td>
+                    <td>{$usuario['estado']}</td>
+                    <td>{$usuario['bairro']}</td>
+                    <td>{$usuario['complemento']}</td>
+                    <td>{$usuario['logradouro']}</td>
+                    <td>{$usuario['tipo']}</td>
+                    <td>
+                        <a href='excluir/{$usuario['id']}' class='btn btn-danger'>Excluir</a>
+                    </td>
+                    <td>
+                        <a href='editar/{$usuario['id']}' class='btn btn-primary'>Editar</a>
+                    </td>
+                </tr>
+                ";
+            }
+        } else {
+            echo "<tr><td colspan='13'>Nenhum usuário encontrado.</td></tr>";
         }
         ?>
         </tbody>
